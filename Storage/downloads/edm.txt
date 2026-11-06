@@ -1,4 +1,0 @@
-James	Smith	James.Smith@Rogers.com	4929-3813-3266-4295	01/26	BRDS01011
-Christopher	Anderson	Christopher.Anderson@Garnier.com	5370-4638-8881-3020	01/27	BRDS01012
-Ronald	Clark	Ronald.Clark@Mcdonalds.com	4916-4811-5814-8111	01/28	BRDS01013
-Mary	Wright	Mary.Wright@Yellow.com	4916-4034-9269-8783	02/26	BRDS01014
