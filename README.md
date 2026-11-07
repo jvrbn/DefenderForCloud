@@ -1,6 +1,35 @@
 # DefenderForCloud
 
 ## Storage
+### Generate and upload dummy files
+
+[UploadFilesBlob.sh](Storage/UploadFilesBlob.sh) and
+[UploadFilesBlob.ps1](Storage/UploadFilesBlob.ps1) generate valid DOCX, XLSX, PDF,
+TXT, CSV, JSON, XML, and HTML samples and upload each using
+`az storage blob upload --auth-mode login`. Both require Azure CLI and Python 3
+(`python3` for shell; `python3` or `python` for PowerShell).
+
+```sh
+az login
+sh Storage/UploadFilesBlob.sh ACCOUNT CONTAINER ./dummy-files
+```
+
+```powershell
+az login
+./Storage/UploadFilesBlob.ps1 -Account ACCOUNT -Container CONTAINER -OutputDir ./dummy-files
+```
+
+Replace `ACCOUNT` and `CONTAINER` with an existing storage account and container.
+Your signed-in account needs Storage Blob Data Contributor access to the
+container. Storage firewall/private endpoint restrictions still apply.
+Omit the output directory to generate files in a new temporary directory.
+Local samples are retained, including if an upload fails. Only the eight
+generated `sample.*` files are uploaded, with matching content types; existing
+local sample files and blobs are not overwritten. Use a different output
+directory if local samples already exist and a different container or remove
+the sample blobs before uploading again. Upload failures stop the script and
+return a nonzero exit code; earlier successful uploads are not rolled back.
+
 ### Get a container SAS URL
 
 [GetStorageContainerUrl.sh](Storage/GetStorageContainerUrl.sh) uses your signed-in
